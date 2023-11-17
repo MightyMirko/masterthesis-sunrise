@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Automatically generated IO group description. Please do NOT modify!
+-->
+<SunriseIOGroupDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0">
+  <IOGroup DisplayName="Python" IconName="Python" SignalTypes="InOut" TemplateName="Python">
+    <IOs>
+      <DigitalIOItem Name="Offset_Teil_mm_Y_Richtung" DataType="INT" IOType="Input" UsedBitWidth="16" IsConnected="true">
+        <Description />
+      </DigitalIOItem>
+      <DigitalIOItem Name="Winkel_Teil_degree" DataType="INT" IOType="Input" UsedBitWidth="16" IsConnected="true">
+        <Description />
+      </DigitalIOItem>
+      <DigitalIOItem Name="Geschwindigkeit_Foerderband" DataType="INT" IOType="Input" UsedBitWidth="16" IsConnected="true">
+        <Description />
+      </DigitalIOItem>
+      <DigitalIOItem Name="Offset_Teil_mm_X_Richtung" DataType="INT" IOType="Input" UsedBitWidth="16" IsConnected="true">
+        <Description />
+      </DigitalIOItem>
+    </IOs>
+    <Description>Schnittstelle zu python skript
+</Description>
+  </IOGroup>
+</SunriseIOGroupDescription>

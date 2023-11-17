@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Driver xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" kukaVersion="1">
+  <Version Label="">
+    <Info Version="" />
+    <Schema Version="600" />
+  </Version>
+  <PROFINET PNIODeviceName="krc4mma" DeviceID="1024" />
+  <DeviceInstance Name="PNIO-DEV" busTimeout="20000" busCycleTime="8" DiagnosticAlarmActive="true" EnableBusErrorBit="false" InvertBusErrorBit="false" BusErrorBitOffset="0" EnableMaintenanceRequestBit="false" InvertMaintenanceRequestBit="false" MaintenanceRequestBitOffset="0" EnableMaintenanceDemandBit="false" InvertMaintenanceDemandBit="false" MaintenanceDemandBitOffset="0" EnableDiagnosticAlarmBit="false" InvertDiagnosticAlarmBit="false" DiagnosticAlarmBitOffset="0" NestedAlarmActive="true" />
+  <ControllerInstance Name="PNIO-CTRL" busTimeout="20000" busCycleTime="2">
+    <Device Name="fx0-gpnt2" ARUserID="2" InputDataLength="64" OutputDataLength="64" DiagnosticAlarmActive="false" IsActive="true" DeleteARPCache="false" />
+  </ControllerInstance>
+</Driver>

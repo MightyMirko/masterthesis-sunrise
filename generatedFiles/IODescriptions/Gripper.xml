@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Automatically generated IO group description. Please do NOT modify!
+-->
+<SunriseIOGroupDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0">
+  <IOGroup DisplayName="Gripper" IconName="Gripper" SignalTypes="InOut" TemplateName="Gripper">
+    <IOs>
+      <DigitalIOItem Name="Isopen" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="true">
+        <Description>is gripper open</Description>
+      </DigitalIOItem>
+      <DigitalIOItem Name="Isclosed" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="true">
+        <Description>is gripper closed</Description>
+      </DigitalIOItem>
+      <DigitalIOItem Name="SetClose" DataType="BOOL" IOType="Output" UsedBitWidth="1" IsConnected="true">
+        <Description>Setting the Gripper to close the claws</Description>
+      </DigitalIOItem>
+      <DigitalIOItem Name="SetOpen" DataType="BOOL" IOType="Output" UsedBitWidth="1" IsConnected="true">
+        <Description>Setting the Gripper to open the claws</Description>
+      </DigitalIOItem>
+    </IOs>
+    <Description>coact egp
+</Description>
+  </IOGroup>
+</SunriseIOGroupDescription>

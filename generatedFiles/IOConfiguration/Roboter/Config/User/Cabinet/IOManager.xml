@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IOManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version Label="">
+    <Info Version="IOManager V0.1.0" />
+    <Schema Version="1" />
+  </Version>
+  <WarnMultipleUsageOfInputs printWarning="false" />
+  <BusList>
+    <Bus BusDriverName="PNIODriver" BusInstanceName="PNIO-DEV">
+      <IOList>
+        <DigitalIO Name="Gripper.Isclosed" Type="INPUT" Scope="USER_IO" StartBit="144" BitSize="1" Signed="false">
+          <Description>is gripper closed</Description>
+        </DigitalIO>
+        <DigitalIO Name="Gripper.Isopen" Type="INPUT" Scope="USER_IO" StartBit="145" BitSize="1" Signed="false">
+          <Description>is gripper open</Description>
+        </DigitalIO>
+        <DigitalIO Name="Sick_Laser_Scanner_Front.A_sick_trigger_warnfeld" Type="INPUT" Scope="USER_IO" StartBit="217" BitSize="1" Signed="false">
+          <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+        </DigitalIO>
+        <DigitalIO Name="Sick_Laser_Scanner_Front.A_sick_trigger_schutzfeld" Type="INPUT" Scope="USER_IO" StartBit="218" BitSize="1" Signed="false">
+          <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+        </DigitalIO>
+        <DigitalIO Name="Sick_laser_scanner_hinten.A_sick_trigger_warnfeld" Type="INPUT" Scope="USER_IO" StartBit="225" BitSize="1" Signed="false">
+          <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+        </DigitalIO>
+        <DigitalIO Name="Sick_laser_scanner_hinten.A_sick_trigger_schutzfeld" Type="INPUT" Scope="USER_IO" StartBit="226" BitSize="1" Signed="false">
+          <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+        </DigitalIO>
+        <DigitalIO Name="Gripper.SetOpen" Type="OUTPUT" Scope="USER_IO" StartBit="2321" BitSize="1" Signed="false">
+          <Description>Setting the Gripper to open the claws</Description>
+        </DigitalIO>
+        <DigitalIO Name="Gripper.SetClose" Type="OUTPUT" Scope="USER_IO" StartBit="2320" BitSize="1" Signed="false">
+          <Description>Setting the Gripper to close the claws</Description>
+        </DigitalIO>
+        <DigitalIO Name="Python.Geschwindigkeit_Foerderband" Type="INPUT" Scope="USER_IO" StartBit="152" BitSize="16" Signed="true">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="Python.Offset_Teil_mm_X_Richtung" Type="INPUT" Scope="USER_IO" StartBit="168" BitSize="16" Signed="true">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="Python.Offset_Teil_mm_Y_Richtung" Type="INPUT" Scope="USER_IO" StartBit="184" BitSize="16" Signed="true">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="Python.Winkel_Teil_degree" Type="INPUT" Scope="USER_IO" StartBit="200" BitSize="16" Signed="true">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="Vakuum.VakuumON" Type="OUTPUT" Scope="USER_IO" StartBit="2322" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="Vakuum.VakuumOFF" Type="OUTPUT" Scope="USER_IO" StartBit="2323" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
+      </IOList>
+    </Bus>
+  </BusList>
+</IOManager>

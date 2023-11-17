@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Automatically generated IO group description. Please do NOT modify!
+-->
+<SunriseIOGroupDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0">
+  <IOGroup DisplayName="Sick_laser_scanner_hinten" IconName="Sick_laser_scanner_hinten" SignalTypes="InOut" TemplateName="Sick_laser_scanner_hinten">
+    <IOs>
+      <DigitalIOItem Name="B_sick_trigger_schutzfeld" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="false">
+        <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+      </DigitalIOItem>
+      <DigitalIOItem Name="A_sick_trigger_warnfeld" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="true">
+        <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+      </DigitalIOItem>
+      <DigitalIOItem Name="A_sick_trigger_schutzfeld" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="true">
+        <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+      </DigitalIOItem>
+      <DigitalIOItem Name="B_sick_trigger_warnfeld" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="false">
+        <Description>True = 1 - Wenn Warnfeld betreten wurde, dann auf 1 </Description>
+      </DigitalIOItem>
+    </IOs>
+    <Description>sd</Description>
+  </IOGroup>
+</SunriseIOGroupDescription>
