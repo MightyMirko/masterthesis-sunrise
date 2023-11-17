@@ -20,6 +20,9 @@ public class Impedance extends RoboticsAPIApplication {
 	private static final int stiffnessZ = 2500;
 	private static final int stiffnessY = 700;
 	private static final int stiffnessX = 1500;
+
+	
+	
 	@Inject
 	private LBR lbr;
 	private static double[] startPosition=new double[]{0,offsetAxis2And4,0,offsetAxis2And4-Math.toRadians(90),0,Math.toRadians(90),0};

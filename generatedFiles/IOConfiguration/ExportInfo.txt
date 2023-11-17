@@ -1,7 +1,7 @@
 Program: WorkVisual
 Program Version: 5.0.5.600
 Installation Directory: C:\Program Files (x86)\KUKA\WorkVisual 5.0
-Export Date: 01.12.2022 18:28:57
+Export Date: 17.11.2023 15:04:23
 Controller Firmware Version: 8.5.0
 Option Package Name: Sunrise
 Option Package Directory: C:\ProgramData\KUKA Roboter GmbH\WorkVisual\5.0\OptionPackages\Sunrise\Sunrise.kop
