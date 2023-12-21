@@ -38,6 +38,10 @@ import com.kuka.connectivity.fastRobotInterface.FRIJointOverlay;
 import com.kuka.connectivity.fastRobotInterface.FRISession;
 import com.kuka.connectivity.fastRobotInterface.IFRISessionListener;
 
+import fastRobot_ROS2_HUMBLE.AngleConverter;
+
+
+
 /**
  * Implementation of a robot application.
  * <p>
@@ -66,8 +70,18 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
     PositionControlMode ctrMode = new PositionControlMode();
     PositionHold posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
     FRIJointOverlay jointOverlay;
+	static double[] degrees = {
+		0.0, 0.0, 0.0,
+		0.0, 0.0, 0.0,
+		0.0
+		};
+    static double[] radians = AngleConverter.degreesToRadians(degrees);
 
-	private static final JointPosition INITIAL_POSITION = new JointPosition(0.0,-0.7854,0.0,1.3962,0.0,0.6109,0.0);
+	private static final JointPosition INITIAL_POSITION = new JointPosition(
+            radians[0], radians[1], radians[2],
+            radians[3], radians[4], radians[5],
+            radians[6]
+        );
     private static final String CLIENT_IP = "172.31.1.58";
 	private static final int TS = 5; //in ms
 
