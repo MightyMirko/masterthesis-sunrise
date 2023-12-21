@@ -108,7 +108,7 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
         // *** change next line to the FRIClient's IP address                 ***
         // **********************************************************************
         _clientName = CLIENT_IP;
-        //_lbr.attachTo(_lbr.getFlange());
+        //_lbr.attachTo(_lbr.getFlange()); eaaeiu
 	}
 
 
