@@ -13,21 +13,20 @@
 // limitations under the License.
 
 package fastRobot_ROS2_HUMBLE;
-
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import javax.inject.Inject;
-import javax.inject.Named;
+//import javax.inject.Named;
 
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 
-import com.kuka.roboticsAPI.conditionModel.BooleanIOCondition;
+//import com.kuka.roboticsAPI.conditionModel.BooleanIOCondition;
 import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
-import com.kuka.roboticsAPI.geometricModel.Tool;
+//import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.JointImpedanceControlMode;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
@@ -38,7 +37,6 @@ import com.kuka.connectivity.fastRobotInterface.FRIConfiguration;
 import com.kuka.connectivity.fastRobotInterface.FRIJointOverlay;
 import com.kuka.connectivity.fastRobotInterface.FRISession;
 import com.kuka.connectivity.fastRobotInterface.IFRISessionListener;
-// import com.kuka.generated.ioAccess.MediaFlangeIOGroup;
 
 /**
  * Implementation of a robot application.
@@ -63,8 +61,9 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
     private LBR _lbr;
     private String _clientName;
     @Inject
-
-    PositionHold posHold;
+    
+    PositionControlMode ctrMode = new PositionControlMode();
+    PositionHold posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
     FRIJointOverlay jointOverlay;
 
 	private static final JointPosition INITIAL_POSITION = new JointPosition(0.0,-0.7854,0.0,1.3962,0.0,0.6109,0.0);
