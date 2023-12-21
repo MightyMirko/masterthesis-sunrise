@@ -82,7 +82,7 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
             radians[3], radians[4], radians[5],
             radians[6]
         );
-    private static final String CLIENT_IP = "172.31.1.58";
+    private static final String CLIENT_IP = "172.31.0.21";
 	private static final int TS = 5; //in ms
 
     IFRISessionListener listener = new IFRISessionListener(){
