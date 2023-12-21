@@ -61,7 +61,8 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
     private LBR _lbr;
     private String _clientName;
     @Inject
-    
+    //private MediaFlangeIOGroup _medflange;
+
     PositionControlMode ctrMode = new PositionControlMode();
     PositionHold posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
     FRIJointOverlay jointOverlay;
