@@ -94,7 +94,7 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
         // *** change next line to the FRIClient's IP address                 ***
         // **********************************************************************
         _clientName = CLIENT_IP;
-        _lbr.attachTo(_lbr.getFlange());
+        //_lbr.attachTo(_lbr.getFlange());
 	}
 
 
@@ -104,8 +104,9 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
 		String ques = "Select FRI control mode  :\n";
     	double res = getApplicationUI().displayModalDialog(ApplicationDialogType.QUESTION,ques , "POSITION","TORQUE","MONITORING","Cancel");
 
+		//_medflange.setLEDRed(true);
 
-		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(0.2));
+		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(0.09));
 
 		if(res == 0){
 			PositionControlMode ctrMode = new PositionControlMode();
@@ -121,7 +122,7 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
         // configure and start FRI session
         FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
         // for torque mode, there has to be a command value at least all 5ms
-        friConfiguration.setSendPeriodMilliSec(TS);
+        friConfiguration.setSendPeriodMilliSec((int) TS);
         friConfiguration.setReceiveMultiplier(1);
 
         getLogger().info("Creating FRI connection to " + friConfiguration.getHostName());
@@ -159,6 +160,16 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
 		else return;
 
 
+        //_medflange.setLEDRed(false);
+        //_medflange.setLEDGreen(true);
+        //BooleanIOCondition _buttonPressed = new BooleanIOCondition(_medflange.getInput("UserButton"), true);
+        
+        if(res == 0 || res == 1) _lbr.move(posHold.addMotionOverlay(jointOverlay));
+        else  _lbr.move(posHold);
+
+		//_medflange.setLEDGreen(false);
+		//_medflange.setLEDRed(true);
+        // done
         friSession.close();
         getLogger().info("FRI connection closed.");
         getLogger().info("Application stopped.");
