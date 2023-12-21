@@ -119,8 +119,8 @@ public class FRI_ROS2 extends RoboticsAPIApplication {
     	double res = getApplicationUI().displayModalDialog(ApplicationDialogType.QUESTION,ques , "POSITION","TORQUE","MONITORING","Cancel");
 
 		//_medflange.setLEDRed(true);
-
-		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(0.09));
+    	double speed_init = 0.7;
+		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(speed_init));
 
 		if(res == 0){
 			PositionControlMode ctrMode = new PositionControlMode();
