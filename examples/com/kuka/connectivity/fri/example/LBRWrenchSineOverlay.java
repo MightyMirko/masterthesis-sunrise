@@ -75,7 +75,6 @@ public class LBRWrenchSineOverlay extends RoboticsAPIApplication
         CartesianImpedanceControlMode ctrMode = new CartesianImpedanceControlMode();
         ctrMode.parametrize(CartDOF.TRANSL).setStiffness(100);
         PositionHold posHold = new PositionHold(ctrMode, 20, TimeUnit.SECONDS);
-
         _lbr.move(posHold.addMotionOverlay(wrenchOverlay));
 
         // done

@@ -107,17 +107,17 @@ public class FRI extends RoboticsAPIApplication
         // configure and start FRI session
         FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
         friConfiguration.setSendPeriodMilliSec(5);
-        //friConfiguration.registerIO()
-        getLogger().info("Creating FRI connection to " + friConfiguration.getHostName());
+        //friConfiguration.registerIO() TODO
+        getLogger().info("Creating FRI connection to "  + friConfiguration.getHostName());
         getLogger().info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
                 + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
 
         FRISession friSession = new FRISession(friConfiguration);
 
        
-		//PositionControlMode ctrMode = new PositionControlMode();
-		//posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
-		//jointOverlay = new FRIJointOverlay(friSession, ClientCommandMode.POSITION);
+		PositionControlMode ctrMode = new PositionControlMode();
+		posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
+		jointOverlay = new FRIJointOverlay(friSession, ClientCommandMode.POSITION);
         // wait until FRI session is ready to switch to command mode
         try
         {
