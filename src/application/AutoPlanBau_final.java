@@ -37,13 +37,13 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 	private LBR lbr;
 	private Tool TCP;
 	private final static String informationTextvierer=
-			"Vierersteine nachfüllen und mit OK bestätigen!";
+			"Vierersteine nachfï¿½llen und mit OK bestï¿½tigen!";
 	
 	private final static String informationTextachter=
-			"Achtersteine nachfüllen und mit OK bestätigen!";
+			"Achtersteine nachfï¿½llen und mit OK bestï¿½tigen!";
 	
 	private final static String informationTextstart=
-			"Der Roboter hat den Bauplan erhalten und wird nun den Bau beginnnen. Mit OK bestätigen zum Starten!";
+			"Der Roboter hat den Bauplan erhalten und wird nun den Bau beginnnen. Mit OK bestï¿½tigen zum Starten!";
 	
 	@Inject
 	private VakuumIOGroup CVakuum;
@@ -87,7 +87,7 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 	int[] Stein;
 	double[] BSList;
 
-	// Länge der Liste mit den Koodrdainten
+	// Lï¿½nge der Liste mit den Koodrdainten
 	int BSListlen;
 	String Bauplanname = "";
 	
@@ -106,7 +106,7 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 		// Inizialisieren der Geschwindigkeiten bei PTP Bewegungen
 		speed = 1;
 		
-		// Inizialisieren der SafePos-Höhe !!!Muss 100 mm bleiben!!!
+		// Inizialisieren der SafePos-Hï¿½he !!!Muss 100 mm bleiben!!!
 		safePos = 100;
 		
 		// Inizialisieren der Impendance Distanz 
@@ -115,11 +115,11 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 		impendance_distance_hol = 2*impendance_distance_vhol;
 		impendance_distance_abl = 12*impendance_distance_vabl;
 		
-		// Initialisieren der Bausteinbreite und Bausteinhöhe
+		// Initialisieren der Bausteinbreite und Bausteinhï¿½he
 		BSB = 32.065;
 		BSH = 19.1;;
 		
-		// Initialisieren der Palettenzähler --> Palette ist Voll
+		// Initialisieren der Palettenzï¿½hler --> Palette ist Voll
 		Zaehler8 = 0;
 		Zaehler4 = 0;
 		
@@ -217,10 +217,10 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 		getLogger().info("Lineare Fahrt Senkrecht nach oben um 200 mm");
 		TCP.move(linRel(Transformation.ofDeg(0,0,-1*safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.1));
 		
-		// For-Schleife über die Länge der Liste der Bausteine 
+		// For-Schleife ï¿½ber die Lï¿½nge der Liste der Bausteine 
 		for (int i = 0; (i < BSListlen); i = i+5){
 			
-			// Beender der FOR-Schleife, wenn kein Zahlenwert mehr ür die bausteinart ankommt
+			// Beender der FOR-Schleife, wenn kein Zahlenwert mehr ï¿½r die bausteinart ankommt
 			if (BSList[i+1] == 0){
 				break;
 			}
@@ -236,15 +236,15 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 					// Vierer holen
 					getLogger().info("Vierer holen");
 					
-					//  Relative Bewegung zu dem nächsten 4er Baustein
+					//  Relative Bewegung zu dem nï¿½chsten 4er Baustein
 					ObjectFrame vPosviererObjectFrame = getApplicationData().getFrame("/A_Lego_Pal/Lego");
 					Frame vPosviererFrame = vPosviererObjectFrame.copyWithRedundancy(vPosviererObjectFrame);
 					Transformation vPosvierertrafo = Transformation.ofDeg(PalAbsx*Zaehler4, 0,-safePos, 0, 0, 0); 
 					vPosviererFrame.transform(vPosvierertrafo);
 					TCP.moveAsync(ptp(vPosviererFrame).setBlendingCart(blendingCart).setJointVelocityRel(speed));
 					
-					//Relative Bewegung auf die Bausteinposition Abzüglich der Distanz die für die ImpendanzBewegug vorgesehen war
-					getLogger().info("Relative Bewegung auf die Bausteinposition Abzüglich der Distanz die für die ImpendanzBewegug vorgesehen war");
+					//Relative Bewegung auf die Bausteinposition Abzï¿½glich der Distanz die fï¿½r die ImpendanzBewegug vorgesehen war
+					getLogger().info("Relative Bewegung auf die Bausteinposition Abzï¿½glich der Distanz die fï¿½r die ImpendanzBewegug vorgesehen war");
 					TCP.move(linRel(Transformation.ofDeg(0,0,safePos-impendance_distance_vhol,0,0,0),getApplicationData().getFrame("/A_Lego_Pal/Lego")).setJointVelocityRel(0.3));					
 					
 					// Anschalten des Vakuums
@@ -264,13 +264,13 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 						e.printStackTrace();
 					}
 					
-					// Relative Bewegung um 100 mm on der Fügeposition nach oben
-					getLogger().info("Relative Bewegung um 100 mm on der Fügeposition nach oben");
+					// Relative Bewegung um 100 mm on der Fï¿½geposition nach oben
+					getLogger().info("Relative Bewegung um 100 mm on der Fï¿½geposition nach oben");
 					// TCP.move(linRel(Transformation.ofDeg(0,0,-safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Pal/Lego")).setJointVelocityRel(0.5).setMode(impedanceControlMode));	
 					TCP.move(linRel(Transformation.ofDeg(0,0,-safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Pal/Lego")).setJointVelocityRel(0.5));	
 					
-					// Zählerwert um 1 erhöhen
-					getLogger().info("Zählerwert um 1 erhöhen");
+					// Zï¿½hlerwert um 1 erhï¿½hen
+					getLogger().info("Zï¿½hlerwert um 1 erhï¿½hen");
 					Zaehler4 = Zaehler4+1;			
 			}
 			
@@ -279,15 +279,15 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 					// Achter holen
 					getLogger().info("Achter holen");
 				
-					//  Relative Bewegung zu dem nächsten 4er Baustein
+					//  Relative Bewegung zu dem nï¿½chsten 4er Baustein
 					ObjectFrame vPosachterObjectFrame = getApplicationData().getFrame("/A_Lego_Pal/Lego");
 					Frame vPosachterFrame = vPosachterObjectFrame.copyWithRedundancy(vPosachterObjectFrame);
 					Transformation vPosvierertrafo = Transformation.ofDeg(PalAbsx*Zaehler8, -(PalAbsy),-safePos, 0, 0, 0); 
 					vPosachterFrame.transform(vPosvierertrafo);
 					TCP.moveAsync(ptp(vPosachterFrame).setBlendingCart(blendingCart).setJointVelocityRel(speed));
 					
-					// Relative Bewegung auf die Bausteinposition Abzüglich der Distanz die für die ImpendanzBewegug vorgesehen war
-					getLogger().info("Relative Bewegung auf die Bausteinposition Abzüglich der Distanz die für die ImpendanzBewegug vorgesehen war");
+					// Relative Bewegung auf die Bausteinposition Abzï¿½glich der Distanz die fï¿½r die ImpendanzBewegug vorgesehen war
+					getLogger().info("Relative Bewegung auf die Bausteinposition Abzï¿½glich der Distanz die fï¿½r die ImpendanzBewegug vorgesehen war");
 					TCP.move(linRel(Transformation.ofDeg(0,0,safePos-impendance_distance_vhol,0,0,0),getApplicationData().getFrame("/A_Lego_Pal/Lego")).setJointVelocityRel(0.3));
 					
 					// Anschalten des Vakuums
@@ -311,10 +311,10 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 					// Relative Bewegung um 100 mm on der Abholposition nach oben
 					//TCP.move(linRel(Transformation.ofDeg(0,0,-safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Pal/Lego")).setJointVelocityRel(0.1).setMode(impedanceControlMode));	
 					TCP.move(linRel(Transformation.ofDeg(0,0,-safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Pal/Lego")).setJointVelocityRel(0.1));	
-					getLogger().info("Relative Bewegung um 100 mm on der Fügeposition nach oben");
+					getLogger().info("Relative Bewegung um 100 mm on der Fï¿½geposition nach oben");
 					
-					// Zählerwert um 1 erhöhen
-					getLogger().info("Zählerwert um 1 erhöhen");
+					// Zï¿½hlerwert um 1 erhï¿½hen
+					getLogger().info("Zï¿½hlerwert um 1 erhï¿½hen");
 					Zaehler8 = Zaehler8+1;
 			}
 			
@@ -332,8 +332,8 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 			vPosAblFrame.transform(vPosAbltrafo);
 			TCP.moveAsync(ptp(vPosAblFrame).setBlendingCart(blendingCart).setJointVelocityRel(speed));
 			
-			// Relative Bewegung auf die Ablageposition Abzüglich der Distanz die für die ImpendanzBewegug vorgesehen war
-			getLogger().info("Relative Bewegung auf die Ablageposition Abzüglich der Distanz die für die ImpendanzBewegug vorgesehen war");
+			// Relative Bewegung auf die Ablageposition Abzï¿½glich der Distanz die fï¿½r die ImpendanzBewegug vorgesehen war
+			getLogger().info("Relative Bewegung auf die Ablageposition Abzï¿½glich der Distanz die fï¿½r die ImpendanzBewegug vorgesehen war");
 			TCP.move(linRel(Transformation.ofDeg(0,0,(safePos-impendance_distance_vabl),0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.3));
 			
 			// Relative Bewegung in die Ablage hinein mit Impendanz Modus --> Erzeugte Federkraft ist 3+1* Federkonstante
@@ -343,46 +343,46 @@ public class AutoPlanBau_final extends RoboticsAPIApplication {
 			// Shut off the vacuum
 			CVakuum.setVakuumON(false);
 			
-			// Relative Bewegung um 100 mm on der Fügeposition nach oben
-			getLogger().info("Relative Bewegung um 100 mm on der Fügeposition nach oben");
+			// Relative Bewegung um 100 mm on der Fï¿½geposition nach oben
+			getLogger().info("Relative Bewegung um 100 mm on der Fï¿½geposition nach oben");
 			TCP.move(linRel(Transformation.ofDeg(0,0,-safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.5).setMode(impedanceControlMode));	
 			
 			
-			// if Abfragen ob die Paletten nochBausteine einthalten --> wenn NEIN, dann wird eine Meldung ausgegeben, dass diese nachgefüllt werden sollen.
+			// if Abfragen ob die Paletten nochBausteine einthalten --> wenn NEIN, dann wird eine Meldung ausgegeben, dass diese nachgefï¿½llt werden sollen.
 						if (Zaehler4 == 7){
 							getLogger().info("Show modal dialog and wait for user to confirm");
 					        
-							// Benutzerabfrage ob die Palette wieder befüllt wurde
+							// Benutzerabfrage ob die Palette wieder befï¿½llt wurde
 							int isCancel = getApplicationUI().displayModalDialog(ApplicationDialogType.QUESTION, informationTextvierer, "OK", "Cancel");
 					        if (isCancel == 1)
 					        {
 					            return;
 					        }
 					        
-					        // Zähler Rücksetzen
-					        getLogger().info("Vierer Zähler zurrückgesetzt");
+					        // Zï¿½hler Rï¿½cksetzen
+					        getLogger().info("Vierer Zï¿½hler zurrï¿½ckgesetzt");
 							Zaehler4 = 0;
 						}
 						
-						// if Abfragen ob die Paletten nochBausteine einthalten --> wenn NEIN, dann wird eine Meldung ausgegeben, dass diese nachgefüllt werden sollen.
+						// if Abfragen ob die Paletten nochBausteine einthalten --> wenn NEIN, dann wird eine Meldung ausgegeben, dass diese nachgefï¿½llt werden sollen.
 						if (Zaehler8 == 7){
 							getLogger().info("Show modal dialog and wait for user to confirm");
 							
-							// Benutzerabfrage ob die Palette wieder befüllt wurde
+							// Benutzerabfrage ob die Palette wieder befï¿½llt wurde
 					        int isCancel = getApplicationUI().displayModalDialog(ApplicationDialogType.QUESTION, informationTextachter, "OK", "Cancel");
 					        if (isCancel == 1)
 					        {
 					            return;
 					        }
 					        
-					        // Zähler Rücksetzen
-					        getLogger().info("Achter Zähler zurrückgesetzt");
+					        // Zï¿½hler Rï¿½cksetzen
+					        getLogger().info("Achter Zï¿½hler zurrï¿½ckgesetzt");
 							Zaehler8 = 0;
 						}
 		}
 		
-		// Relative Bewegung um 100 mm on der Fügeposition nach oben
-		getLogger().info("Relative Bewegung um 100 mm on der Fügeposition nach oben");
+		// Relative Bewegung um 100 mm on der Fï¿½geposition nach oben
+		getLogger().info("Relative Bewegung um 100 mm on der Fï¿½geposition nach oben");
 		TCP.move(linRel(Transformation.ofDeg(0,0,-safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.3));
 	}
 }

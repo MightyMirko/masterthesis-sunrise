@@ -1,5 +1,6 @@
 package fri_masterthesis_mirko;
 
+import static com.kuka.roboticsAPI.motionModel.BasicMotions.linRel;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.ptp;
 
 import java.util.concurrent.TimeUnit;
@@ -12,6 +13,8 @@ import com.kuka.connectivity.fastRobotInterface.FRISession;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.deviceModel.LBR;
+import com.kuka.roboticsAPI.geometricModel.Tool;
+import com.kuka.roboticsAPI.geometricModel.math.Transformation;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
 
@@ -23,7 +26,9 @@ public class FRI extends RoboticsAPIApplication
     private Controller _lbrController;
     private LBR _lbr;
     private String _clientName;
-
+    private Tool TCP;
+	double speed;
+	int safePos;
     PositionControlMode ctrMode = new PositionControlMode();
     PositionHold posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
     FRIJointOverlay jointOverlay;
@@ -36,11 +41,28 @@ public class FRI extends RoboticsAPIApplication
         // *** change next line to the FRIClient's IP address                 ***
         // **********************************************************************
         _clientName = "172.31.0.21";
+        
+		TCP = getApplicationData().createFromTemplate("Lego_Sauger");
+
+        
+		// Inizialisieren der Geschwindigkeiten bei PTP Bewegungen
+		speed = 1;
+		
+		// Inizialisieren der SafePos-H�he !!!Muss 100 mm bleiben!!!
+		safePos = 100;
+        
     }
 
     @Override
     public void run()
     {
+
+        TCP.attachTo(_lbr.getFlange());
+		
+		// Lineare Fahrt Senkrecht nach oben um 200 mm 
+		getLogger().info("Lineare Fahrt Senkrecht nach oben um 200 mm");
+		TCP.move(linRel(Transformation.ofDeg(0,0,-1*safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.1));
+		
         // configure and start FRI session
         FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
         friConfiguration.setSendPeriodMilliSec(5);
