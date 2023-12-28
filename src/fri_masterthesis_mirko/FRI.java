@@ -12,11 +12,14 @@ import com.kuka.connectivity.fastRobotInterface.FRIJointOverlay;
 import com.kuka.connectivity.fastRobotInterface.FRISession;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import com.kuka.roboticsAPI.controllerModel.Controller;
+import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.geometricModel.math.Transformation;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
+
+import fastRobot_ROS2_HUMBLE.AngleConverter;
 
 /**
  * Creates a FRI Session.
@@ -32,6 +35,22 @@ public class FRI extends RoboticsAPIApplication
     PositionControlMode ctrMode = new PositionControlMode();
     PositionHold posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
     FRIJointOverlay jointOverlay;
+    
+	static double[] degrees = {
+		0.0, 0.0, 0.0,
+		0.0, 0.0, 0.0,
+		0.0
+		};
+    static double[] radians = AngleConverter.degreesToRadians(degrees);
+
+	private static final JointPosition INITIAL_POSITION = new JointPosition(
+            radians[0], radians[1], radians[2],
+            radians[3], radians[4], radians[5],
+            radians[6]
+        );
+	
+	
+    
     @Override
     public void initialize()
     {
@@ -50,7 +69,7 @@ public class FRI extends RoboticsAPIApplication
 		
 		// Inizialisieren der SafePos-H�he !!!Muss 100 mm bleiben!!!
 		safePos = 100;
-        
+
     }
 
     @Override
@@ -60,9 +79,14 @@ public class FRI extends RoboticsAPIApplication
         TCP.attachTo(_lbr.getFlange());
 		
 		// Lineare Fahrt Senkrecht nach oben um 200 mm 
-		getLogger().info("Lineare Fahrt Senkrecht nach oben um 200 mm");
-		TCP.move(linRel(Transformation.ofDeg(0,0,-1*safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.1));
-		
+		//getLogger().info("Lineare Fahrt Senkrecht nach oben um 200 mm");
+		//TCP.move(linRel(Transformation.ofDeg(0,0,-1*safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.1));
+		//_medflange.setLEDRed(true);
+    	double speed_init = 0.7;
+		getLogger().info("Init POS PTP");
+
+		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(speed_init));
+
         // configure and start FRI session
         FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
         friConfiguration.setSendPeriodMilliSec(5);
