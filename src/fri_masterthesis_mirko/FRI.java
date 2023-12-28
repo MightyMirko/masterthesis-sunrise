@@ -84,7 +84,6 @@ public class FRI extends RoboticsAPIApplication
 		//_medflange.setLEDRed(true);
     	double speed_init = 0.7;
 		getLogger().info("Init POS PTP");
-
 		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(speed_init));
 
         // configure and start FRI session
@@ -96,8 +95,11 @@ public class FRI extends RoboticsAPIApplication
                 + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
 
         FRISession friSession = new FRISession(friConfiguration);
-        FRIJointOverlay jointOverlay = new FRIJointOverlay(friSession);
 
+       
+		PositionControlMode ctrMode = new PositionControlMode();
+		posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
+		jointOverlay = new FRIJointOverlay(friSession, ClientCommandMode.POSITION);
         // wait until FRI session is ready to switch to command mode
         try
         {
@@ -113,21 +115,13 @@ public class FRI extends RoboticsAPIApplication
         getLogger().info("FRI connection established.");
 
         // move to start pose
+		getLogger().info("Init POS PTP");
+
         _lbr.move(ptp(Math.toRadians(90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0));
 
-       
-		PositionControlMode ctrMode = new PositionControlMode();
-		posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
-		jointOverlay = new FRIJointOverlay(friSession, ClientCommandMode.POSITION);
-		
+		getLogger().info("Lets Go Position Mode");
 
-        //_medflange.setLEDRed(false);
-        //_medflange.setLEDGreen(true);
-        //BooleanIOCondition _buttonPressed = new BooleanIOCondition(_medflange.getInput("UserButton"), true);
-        
-        //if(res == 0 || res == 1) 
         _lbr.move(posHold.addMotionOverlay(jointOverlay));
-        
 
         // done
         friSession.close();
