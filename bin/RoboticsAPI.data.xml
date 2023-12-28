@@ -1030,7 +1030,7 @@
             <additionalInformation>
                 <info key="ID" type="java.lang.String" value="badc958c-ea5d-47a2-9bf2-cf628e7775ae"/>
             </additionalInformation>
-            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="-24.38859498809785" cogY="-28.842995594065293" cogZ="-8.223168038704411" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.5080895136262571"/>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="29.078267065261958" cogY="29.701331654830526" cogZ="-101.975154460003" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.5080895136262571"/>
         </toolTemplate>
     </objectTemplates>
 </RoboticsAPIData>
