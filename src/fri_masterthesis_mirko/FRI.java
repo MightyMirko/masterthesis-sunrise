@@ -155,7 +155,7 @@ public class FRI extends RoboticsAPIApplication
 
 		getLogger().info("Lets Go Position Mode");
 		goGsm();
-        //_lbr.move(posHold);
+        _lbr.move(posHold);
         
         //.addMotionOverlay(jointOverlay));
         //_lbr.getCurrentJointPosition();
