@@ -1007,8 +1007,9 @@
             <additionalInformation>
                 <info key="ID" type="java.lang.String" value="93f9fdf3-dd9a-4238-a1e2-3bb6ac7cad1f"/>
                 <info key="SafetyID" type="java.lang.Integer" value="0"/>
+                <info key="Comment" type="java.lang.String" value="Versuch einen Gripper in FRI in cpp zu simulieren&#13;&#10;"/>
             </additionalInformation>
-            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="198.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="4.0"/>
         </toolTemplate>
         <toolTemplate class="Kreis_Programm.Greifer" defaultMotionFrameRef="/TCP_Gripper" name="Kreisprozess_Gripper">
             <frames>

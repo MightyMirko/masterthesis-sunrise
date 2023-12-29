@@ -24,11 +24,12 @@ import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.OperationMode;
 import com.kuka.roboticsAPI.geometricModel.Tool;
+import com.kuka.roboticsAPI.motionModel.HandGuidingMotion;
 import com.kuka.roboticsAPI.motionModel.PTP;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
 import fastRobot_ROS2_HUMBLE.AngleConverter;
-
+import static com.kuka.roboticsAPI.motionModel.HRCMotions.*;
 /**
  * C:reates a FRI Sesaeeesion.
  */ 
@@ -40,6 +41,7 @@ public class FRI extends RoboticsAPIApplication
     private Tool TCP;
 	double speed;
 	int safePos;
+	private HandGuidingMotion motion;
 	
  // hinzuf�gen einer profinet io zum abschalten der fahrfreigabe @todo  
 	
