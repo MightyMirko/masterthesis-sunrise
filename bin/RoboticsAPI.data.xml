@@ -994,18 +994,18 @@
             </redundancyData>
         </frame>
         <frame id="_26f40426-b8b0-4f4b-a607-65f42280bedc" name="A_virtualGripHome">
-            <transformation a="0.0" b="0.0" c="0.0" x="39.301318831229516" y="596.4423949321582" z="565.6127456396965"/>
+            <transformation a="1.9416359530099092" b="0.6762288570529509" c="0.4578347166311023" x="245.8485179134411" y="386.048736139789" z="1083.0769683875874"/>
             <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1703875227652"/>
+                <info key="LastModificationTime" type="java.lang.Long" value="1703875610757"/>
                 <info base="LBR_iiwa_7_R800_1" controller="Mirko_Sunrise_FRI_Cabinet" device="LBR_iiwa_7_R800_1" tcpName="MyVirtualGripper/TCP" tool="MyVirtualGripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
                     <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                 </info>
             </additionalInformation>
             <redundancyData>
                 <redundancy transformationProviderName="Mirko_Sunrise_FRI_Cabinet/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="2" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="88" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="0.0061976419208839015" valueType="java.lang.Double"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="40" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="1.4578612456904925" valueType="java.lang.Double"/>
                 </redundancy>
             </redundancyData>
             <frame id="_41c6e0ac-75fd-4b9b-a9c1-eaa1f4ca479b" name="P1">
