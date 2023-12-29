@@ -44,7 +44,7 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/KUKAJavaLib/com.kuka.resource.api_1.0.0.5-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5.jar">
+	<classpathentry kind="lib" path="KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5.jar" sourcepath="KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5-javadoc.jar!/"/>
 		</attributes>
