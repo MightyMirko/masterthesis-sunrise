@@ -993,10 +993,10 @@
                 </redundancy>
             </redundancyData>
         </frame>
-        <frame id="_26f40426-b8b0-4f4b-a607-65f42280bedc" name="virtualGripHome">
+        <frame id="_26f40426-b8b0-4f4b-a607-65f42280bedc" name="A_virtualGripHome">
             <transformation a="0.0" b="0.0" c="0.0" x="39.301318831229516" y="596.4423949321582" z="565.6127456396965"/>
             <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1703875165519"/>
+                <info key="LastModificationTime" type="java.lang.Long" value="1703875227652"/>
                 <info base="LBR_iiwa_7_R800_1" controller="Mirko_Sunrise_FRI_Cabinet" device="LBR_iiwa_7_R800_1" tcpName="MyVirtualGripper/TCP" tool="MyVirtualGripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
                     <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                 </info>
@@ -1050,6 +1050,10 @@
             <frames>
                 <frame id="_6dac9ba7-0d33-4743-8238-cf71d13e4192" name="TCP">
                     <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="Radius" type="java.lang.Integer" value="35"/>
+                        <info key="SafetyID" type="java.lang.Integer" value="0"/>
+                    </additionalInformation>
                 </frame>
             </frames>
             <additionalInformation>
