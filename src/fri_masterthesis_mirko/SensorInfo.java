@@ -74,21 +74,13 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 	@Override
 	public void runCyclic() {
 		boolean tmp = true;
-		
-		
-// your task execution starts here
 	    FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
-    	friConfiguration.setSendPeriodMilliSec(5);
-    	
+    	friConfiguration.setSendPeriodMilliSec(5);    	
 		FRISession friSession = new FRISession(friConfiguration);
- //logger.info("Creating FRI connection to "  + friConfiguration.getHostName());
- //logger.info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
-    //             + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
-
-         try{
+        try{
         	 friSession.await(10, TimeUnit.SECONDS);
          }
-         catch (final TimeoutException e)
+        catch (final TimeoutException e)
          {
         	 logger.error(e.getLocalizedMessage());
              //friSession.close();
@@ -96,9 +88,6 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
              return;
          }
 
-         //logger.info("FRI connection established.");	
-	
-         //logger.info(friChannelInformation.toString());
 		while (tmp){
 			
 			if (friChannelInformation.getFRISessionState() == FRISessionState.IDLE)
