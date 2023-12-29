@@ -37,7 +37,7 @@ public class FRI extends RoboticsAPIApplication
 {
     private Controller _lbrController;
     private LBR _lbr;
-    private String _clientName;
+    //private String _clientName;
     private Tool virtualGripper;
 	double speed;
 	int safePos;
@@ -70,7 +70,7 @@ public class FRI extends RoboticsAPIApplication
             radians[6]
         );
 	
-    IFRISessionListener listener = new IFRISessionListener(){
+    /*IFRISessionListener listener = new IFRISessionListener(){
     	@Override
     	public void onFRIConnectionQualityChanged(
     	FRIChannelInformation friChannelInformation){
@@ -84,7 +84,7 @@ public class FRI extends RoboticsAPIApplication
     	friChannelInformation.getFRISessionState() +"\n Jitter info:" + friChannelInformation.getJitter() +"\n Latency info:" + friChannelInformation.getLatency());
     	}
     	};
-    
+   */ 
     @Override
 
     public void initialize()
@@ -94,7 +94,7 @@ public class FRI extends RoboticsAPIApplication
         // **********************************************************************
         // *** change next line to the FRIClient's IP address                 ***
         // **********************************************************************
-        _clientName = "172.31.0.21";
+        //_clientName = "172.31.0.21";
         virtualGripper = getApplicationData().createFromTemplate("myVirtualGripper");
         virtualGripper.attachTo(_lbr.getFlange());
         
@@ -123,34 +123,34 @@ public class FRI extends RoboticsAPIApplication
 
 		
 		// configure and start FRI session
-        FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
-        friConfiguration.setSendPeriodMilliSec(5);
+        //FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
+        //friConfiguration.setSendPeriodMilliSec(5)
         //friConfiguration.registerIO() TODO
         
         
-        getLogger().info("Creating FRI connection to "  + friConfiguration.getHostName());
-        getLogger().info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
-                + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
+        //getLogger().info("Creating FRI connection to "  + friConfiguration.getHostName());
+        //getLogger().info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
+        //        + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
 
-        FRISession friSession = new FRISession(friConfiguration);
+       //FRISession friSession = new FRISession(friConfiguration);
 
-       
-		//PositionControlMode ctrMode = new PositionControlMode();
-		//posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
-		//jointOverlay = new FRIJointOverlay(friSession, ClientCommandMode.POSITION);
+       //
+		////PositionControlMode ctrMode = new PositionControlMode();
+		////posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
+		////jointOverlay = new FRIJointOverlay(friSession, ClientCommandMode.POSITION);
 
-        // wait until FRI session is ready to switch to command mode
-        try
-        {
-            friSession.await(10, TimeUnit.SECONDS);
-        }
-        catch (final TimeoutException e)
-        {
-            getLogger().error(e.getLocalizedMessage());
-            friSession.close();
-            return;
-        }
-        getLogger().info("FRI connection established.");
+       //// wait until FRI session is ready to switch to command mode
+       //try
+       //{
+       //    friSession.await(10, TimeUnit.SECONDS);
+       //}
+       //catch (final TimeoutException e)
+       //{
+       //    getLogger().error(e.getLocalizedMessage());
+       //    friSession.close();
+       //    return;
+       //}
+        //getLogger().info("FRI connection established.");
 
         // move to start pose
 		getLogger().info("Init POS PTP");
@@ -168,7 +168,7 @@ public class FRI extends RoboticsAPIApplication
         //.addMotionOverlay(jointOverlay));
         //_lbr.getCurrentJointPosition();
         // done
-        friSession.close();
+        //friSession.close();
     }
 
     private boolean goGsm()

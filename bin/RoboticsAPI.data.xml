@@ -2,108 +2,6 @@
 <RoboticsAPIData version="3">
     <world>
         <gravitation x="0.0" y="0.0" z="9.81"/>
-        <frame id="_0a533158-ad07-4d69-b5b0-c7be53549336" name="PickAndPlaceExample">
-            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-            <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-            </additionalInformation>
-            <frame id="_2263ee2f-54fd-4bdc-a409-53e15427d03b" name="EndPosition">
-                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                </additionalInformation>
-            </frame>
-            <frame id="_59f63728-3259-45bf-af5d-a1a5e3d3b03b" name="Stack">
-                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                </additionalInformation>
-                <frame id="_cdca0274-d70f-40cd-a16f-7c2c2d9b5f88" name="Entry">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                </frame>
-                <frame id="_b2b788b3-43cb-46e3-8a54-83718b0d3366" name="First">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                    <frame id="_645c7c9b-6ee4-4973-a1ff-526339f4d87d" name="Approach">
-                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                        <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                        </additionalInformation>
-                    </frame>
-                </frame>
-                <frame id="_14941ac8-4678-4f2d-ad41-4945cc007fe8" name="Grip">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                    <frame id="_d714970d-48d2-4c08-8951-ab9b634e6926" name="Approach">
-                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                        <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                        </additionalInformation>
-                    </frame>
-                </frame>
-                <frame id="_62e25cc2-337d-4a48-af89-639aaf786c81" name="LastInCol">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                </frame>
-            </frame>
-            <frame id="_50afa971-4690-49be-a65d-923bf7cbae51" name="Tray">
-                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                </additionalInformation>
-                <frame id="_d3e13465-af16-45c2-a341-6ab80e8f8210" name="Entry">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                </frame>
-                <frame id="_26c6bba1-55b0-44d9-965a-be7abeedd57d" name="First">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                    <frame id="_bf4a232b-98ba-4640-b123-fec240b86b60" name="Approach">
-                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                        <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                        </additionalInformation>
-                    </frame>
-                </frame>
-                <frame id="_f23fe677-40c7-48b7-b181-59839199540c" name="Grip">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                    <frame id="_d8829e2d-db84-45c5-93ce-65c967da323f" name="Approach">
-                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                        <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                        </additionalInformation>
-                    </frame>
-                </frame>
-                <frame id="_2b29b33c-53c9-46bf-bd77-58b6955685ad" name="LastInRow">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                </frame>
-                <frame id="_25689b1f-9f49-4631-83e3-62a36cf530ac" name="LastInCol">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
-                    </additionalInformation>
-                </frame>
-            </frame>
-        </frame>
         <frame id="_7e784fe4-74c7-4dcb-8a7f-dd36554670fb" name="Kreis_Schub_zu_1">
             <transformation a="-2.6471894307863133" b="0.24960996015166614" c="-3.0296246635679895" x="-380.6804244770968" y="7.972071754628694" z="193.76482773348883"/>
             <additionalInformation>
@@ -653,22 +551,22 @@
                     <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.01232697372742323" valueType="java.lang.Double"/>
                 </redundancy>
             </redundancyData>
-        </frame>
-        <frame id="_b5e059a4-b0b6-429d-86dc-c23fb2f65812" name="v2">
-            <transformation a="2.0801964246448463" b="-0.05298472477857483" c="-3.036306697777143" x="-753.4657687681619" y="9.998372275947329" z="295.7626556975916"/>
-            <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1646239304175"/>
-                <info base="LBR_iiwa_7_R800_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_7_R800_1" tcpName="Flange" tool="Flange" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
-                    <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
-                </info>
-            </additionalInformation>
-            <redundancyData>
-                <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="5" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="39" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.006564538927585768" valueType="java.lang.Double"/>
-                </redundancy>
-            </redundancyData>
+            <frame id="_b5e059a4-b0b6-429d-86dc-c23fb2f65812" name="v2">
+                <transformation a="0.016074646226336305" b="0.09774275494103543" c="0.18065607083653012" x="-19.53648053079877" y="35.534389987057466" z="-59.090559064195645"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1703876127712"/>
+                    <info base="LBR_iiwa_7_R800_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_7_R800_1" tcpName="Flange" tool="Flange" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                        <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    </info>
+                </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
+                        <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="5" valueType="java.lang.Integer"/>
+                        <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="39" valueType="java.lang.Integer"/>
+                        <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.006564538927585768" valueType="java.lang.Double"/>
+                    </redundancy>
+                </redundancyData>
+            </frame>
         </frame>
         <frame id="_acf88064-b201-4376-928b-ce664053ea23" name="v3">
             <transformation a="2.0800643197610107" b="-0.05313153449626981" c="-3.0360431725227706" x="-753.4927487885163" y="10.001931526360071" z="188.21880812356713"/>
@@ -994,18 +892,18 @@
             </redundancyData>
         </frame>
         <frame id="_26f40426-b8b0-4f4b-a607-65f42280bedc" name="A_virtualGripHome">
-            <transformation a="1.9416359530099092" b="0.6762288570529509" c="0.4578347166311023" x="245.8485179134411" y="386.048736139789" z="1083.0769683875874"/>
+            <transformation a="0.0" b="0.0" c="0.0" x="39.301318831229516" y="596.4423949321582" z="565.6127456396965"/>
             <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1703875610757"/>
+                <info key="LastModificationTime" type="java.lang.Long" value="1703875227652"/>
                 <info base="LBR_iiwa_7_R800_1" controller="Mirko_Sunrise_FRI_Cabinet" device="LBR_iiwa_7_R800_1" tcpName="MyVirtualGripper/TCP" tool="MyVirtualGripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
                     <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                 </info>
             </additionalInformation>
             <redundancyData>
                 <redundancy transformationProviderName="Mirko_Sunrise_FRI_Cabinet/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="40" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="1.4578612456904925" valueType="java.lang.Double"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="2" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="88" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="0.0061976419208839015" valueType="java.lang.Double"/>
                 </redundancy>
             </redundancyData>
             <frame id="_41c6e0ac-75fd-4b9b-a9c1-eaa1f4ca479b" name="P1">
@@ -1039,6 +937,114 @@
                         <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="0.006190391495921882" valueType="java.lang.Double"/>
                     </redundancy>
                 </redundancyData>
+            </frame>
+        </frame>
+        <frame id="_ef9524e5-b153-45e3-a6a4-cd15ab58d028" name="P7">
+            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="1703876062686"/>
+            </additionalInformation>
+        </frame>
+        <frame id="_0a533158-ad07-4d69-b5b0-c7be53549336" name="PickAndPlaceExample">
+            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+            </additionalInformation>
+            <frame id="_2263ee2f-54fd-4bdc-a409-53e15427d03b" name="EndPosition">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                </additionalInformation>
+            </frame>
+            <frame id="_59f63728-3259-45bf-af5d-a1a5e3d3b03b" name="Stack">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                </additionalInformation>
+                <frame id="_cdca0274-d70f-40cd-a16f-7c2c2d9b5f88" name="Entry">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                </frame>
+                <frame id="_b2b788b3-43cb-46e3-8a54-83718b0d3366" name="First">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                    <frame id="_645c7c9b-6ee4-4973-a1ff-526339f4d87d" name="Approach">
+                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                        <additionalInformation>
+                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                        </additionalInformation>
+                    </frame>
+                </frame>
+                <frame id="_14941ac8-4678-4f2d-ad41-4945cc007fe8" name="Grip">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                    <frame id="_d714970d-48d2-4c08-8951-ab9b634e6926" name="Approach">
+                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                        <additionalInformation>
+                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                        </additionalInformation>
+                    </frame>
+                </frame>
+                <frame id="_62e25cc2-337d-4a48-af89-639aaf786c81" name="LastInCol">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                </frame>
+            </frame>
+            <frame id="_50afa971-4690-49be-a65d-923bf7cbae51" name="Tray">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                </additionalInformation>
+                <frame id="_d3e13465-af16-45c2-a341-6ab80e8f8210" name="Entry">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                </frame>
+                <frame id="_26c6bba1-55b0-44d9-965a-be7abeedd57d" name="First">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                    <frame id="_bf4a232b-98ba-4640-b123-fec240b86b60" name="Approach">
+                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                        <additionalInformation>
+                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                        </additionalInformation>
+                    </frame>
+                </frame>
+                <frame id="_f23fe677-40c7-48b7-b181-59839199540c" name="Grip">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                    <frame id="_d8829e2d-db84-45c5-93ce-65c967da323f" name="Approach">
+                        <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                        <additionalInformation>
+                            <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                        </additionalInformation>
+                    </frame>
+                </frame>
+                <frame id="_2b29b33c-53c9-46bf-bd77-58b6955685ad" name="LastInRow">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                </frame>
+                <frame id="_25689b1f-9f49-4631-83e3-62a36cf530ac" name="LastInCol">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="0"/>
+                    </additionalInformation>
+                </frame>
             </frame>
         </frame>
     </world>
