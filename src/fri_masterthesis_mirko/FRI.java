@@ -38,7 +38,7 @@ public class FRI extends RoboticsAPIApplication
     private Controller _lbrController;
     private LBR _lbr;
     private String _clientName;
-    private Tool TCP;
+    private Tool virtualGripper;
 	double speed;
 	int safePos;
 	private HandGuidingMotion motion;
@@ -95,14 +95,14 @@ public class FRI extends RoboticsAPIApplication
         // *** change next line to the FRIClient's IP address                 ***
         // **********************************************************************
         _clientName = "172.31.0.21";
+        virtualGripper = getApplicationData().createFromTemplate("myVirtualGripper");
+        virtualGripper.attachTo(_lbr.getFlange());
         
-		TCP = getApplicationData().createFromTemplate("Lego_Sauger");
-
         
 		// Inizialisieren der Geschwindigkeiten bei PTP Bewegungen
 		speed = 1;
 		
-		// Inizialisieren der SafePos-H�he !!!Muss 100 mm bleiben!!!
+		// Inizialisieren der SafePos-Höhe !!!Muss 100 mm bleiben!!!
 		safePos = 100;
 
     }
@@ -111,7 +111,6 @@ public class FRI extends RoboticsAPIApplication
     public void run()
     {
 
-        TCP.attachTo(_lbr.getFlange());
 			
 		// Lineare Fahrt Senkrecht nach oben um 200 mm 
 		//getLogger().info("Lineare Fahrt Senkrecht nach oben um 200 mm");
