@@ -128,7 +128,7 @@ public class FRI extends RoboticsAPIApplication
         }
         else
         {
-            joggingVelocity = 0.15;
+            joggingVelocity = 0.5;
         }
         
         if (allAxesMastered)

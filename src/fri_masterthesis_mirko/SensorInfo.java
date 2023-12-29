@@ -73,7 +73,6 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 
 	@Override
 	public void runCyclic() {
-		boolean tmp = true;
 	    FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
     	friConfiguration.setSendPeriodMilliSec(5);    	
 		FRISession friSession = new FRISession(friConfiguration);
@@ -82,15 +81,15 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
          }
         catch (final TimeoutException e)
          {
-        	 logger.error(e.getLocalizedMessage());
-             //friSession.close();
- 			tmp = false;
+        	 //logger.error(e.getLocalizedMessage());
+             friSession.close();
              return;
          }
+		boolean tmp = true;
 
 		while (tmp){
 			
-			if (friChannelInformation.getFRISessionState() == FRISessionState.IDLE)
+			if (friSession.getFRIChannelInformation().getFRISessionState() == FRISessionState.IDLE)
 				tmp = false;
 			else{
 				tmp = true;
