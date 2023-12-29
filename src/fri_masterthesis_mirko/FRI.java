@@ -151,10 +151,10 @@ public class FRI extends RoboticsAPIApplication
         // move to start pose
 		getLogger().info("Init POS PTP");
 
-        _lbr.move(ptp(Math.toRadians(90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0));
+        //_lbr.move(ptp(Math.toRadians(90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0));
 
 		getLogger().info("Lets Go Position Mode");
-
+		goGsm();
         //_lbr.move(posHold);
         
         //.addMotionOverlay(jointOverlay));
