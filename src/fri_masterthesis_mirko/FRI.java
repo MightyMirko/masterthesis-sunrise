@@ -27,8 +27,6 @@ import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.motionModel.PTP;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import fastRobot_ROS2_HUMBLE.AngleConverter;
 
 /**
@@ -158,8 +156,8 @@ public class FRI extends RoboticsAPIApplication
 		boolean repeat = true; 		
 		while (repeat) {
 			
-			goGsm();
-			_lbr.move(posHold);
+			repeat = goGsm();
+			//_lbr.move(posHold);
 		
 		}
         //.addMotionOverlay(jointOverlay));
