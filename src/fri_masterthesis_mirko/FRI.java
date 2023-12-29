@@ -4,15 +4,9 @@ import static com.kuka.roboticsAPI.motionModel.BasicMotions.ptp;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.ptpHome;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 import com.kuka.common.ThreadUtil;
-import com.kuka.connectivity.fastRobotInterface.ClientCommandMode;
-import com.kuka.connectivity.fastRobotInterface.FRIChannelInformation;
-import com.kuka.connectivity.fastRobotInterface.FRIConfiguration;
 import com.kuka.connectivity.fastRobotInterface.FRIJointOverlay;
-import com.kuka.connectivity.fastRobotInterface.FRISession;
-import com.kuka.connectivity.fastRobotInterface.IFRISessionListener;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.controllerModel.sunrise.ISunriseRequestService;
@@ -28,8 +22,8 @@ import com.kuka.roboticsAPI.motionModel.HandGuidingMotion;
 import com.kuka.roboticsAPI.motionModel.PTP;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
+
 import fastRobot_ROS2_HUMBLE.AngleConverter;
-import static com.kuka.roboticsAPI.motionModel.HRCMotions.*;
 /**
  * C:reates a FRI Sesaeeesion.
  */ 
@@ -45,12 +39,12 @@ public class FRI extends RoboticsAPIApplication
 	
  // hinzuf�gen einer profinet io zum abschalten der fahrfreigabe @todo  
 	
-    PositionControlMode ctrMode = new PositionControlMode();
+    /*PositionControlMode ctrMode = new PositionControlMode();
     PositionHold posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
     FRIJointOverlay jointOverlay;
-
+*/
     private final static double sideOffset = Math.toRadians(5);       // offset in radians for side motion
-    private double joggingVelocity = 0.15;                            // relative velocity
+    private double joggingVelocity = 0.45;                            // relative velocity
     private final static int axisId[] = {0, 1, 2, 3, 4, 5, 6};        // axes to be referenced
     private final static int GMS_REFERENCING_COMMAND = 2;             // safety command for GMS referencing
     private final static int COMMAND_SUCCESSFUL = 1;
@@ -70,23 +64,7 @@ public class FRI extends RoboticsAPIApplication
             radians[6]
         );
 	
-    /*IFRISessionListener listener = new IFRISessionListener(){
-    	@Override
-    	public void onFRIConnectionQualityChanged(
-    	FRIChannelInformation friChannelInformation){
-    	getLogger().info("QualityChangedEvent - quality:" +
-    	friChannelInformation.getQuality()+"\n Jitter info:" + friChannelInformation.getJitter() +"\n Latency info:" + friChannelInformation.getLatency());
-    	}
-    	@Override
-    	public void onFRISessionStateChanged(
-    	FRIChannelInformation friChannelInformation){
-    	getLogger().info("SessionStateChangedEvent - session state:" +
-    	friChannelInformation.getFRISessionState() +"\n Jitter info:" + friChannelInformation.getJitter() +"\n Latency info:" + friChannelInformation.getLatency());
-    	}
-    	};
-   */ 
     @Override
-
     public void initialize()
     {
         _lbrController = (Controller) getContext().getControllers().toArray()[0];
@@ -99,10 +77,10 @@ public class FRI extends RoboticsAPIApplication
         virtualGripper.attachTo(_lbr.getFlange());
         
         
-		// Inizialisieren der Geschwindigkeiten bei PTP Bewegungen
+		// Initialisieren der Geschwindigkeiten bei PTP Bewegungen
 		speed = 1;
 		
-		// Inizialisieren der SafePos-Höhe !!!Muss 100 mm bleiben!!!
+		// Initialisieren der SafePos-Höhe !!!Muss 100 mm bleiben!!!
 		safePos = 100;
 
     }
@@ -123,10 +101,7 @@ public class FRI extends RoboticsAPIApplication
 			//_lbr.move(posHold);
 		
 		}
-        //.addMotionOverlay(jointOverlay));
-        //_lbr.getCurrentJointPosition();
-        // done
-        //friSession.close();
+
     }
 
     private boolean goGsm()
