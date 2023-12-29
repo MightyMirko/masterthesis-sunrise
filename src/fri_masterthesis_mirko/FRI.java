@@ -35,7 +35,7 @@ public class FRI extends RoboticsAPIApplication
     private Tool virtualGripper;
 	double speed;
 	int safePos;
-	private HandGuidingMotion motion;
+	//private HandGuidingMotion motion;
 	
  // hinzuf�gen einer profinet io zum abschalten der fahrfreigabe @todo  
 	
