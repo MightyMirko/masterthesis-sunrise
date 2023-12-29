@@ -119,11 +119,15 @@ public class FRI extends RoboticsAPIApplication
     	double speed_init = 0.7;
 		getLogger().info("Init POS PTP");
 		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(speed_init));
-		virtualGripper.move(ptp(getApplicationData().getFrame("/TCP")));
-        // configure and start FRI session
+		virtualGripper.move(ptp(getApplicationData().getFrame("/A_virtualGripHome")));
+
+		
+		// configure and start FRI session
         FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
         friConfiguration.setSendPeriodMilliSec(5);
         //friConfiguration.registerIO() TODO
+        
+        
         getLogger().info("Creating FRI connection to "  + friConfiguration.getHostName());
         getLogger().info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
                 + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
