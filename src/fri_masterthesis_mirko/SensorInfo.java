@@ -122,8 +122,10 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 		while (tmp){
 			
 			if (friChannelInformation.getFRISessionState() == FRISessionState.IDLE)
-				tmp = false;			
-
+				tmp = false;
+			else{
+				tmp = true;
+			}
 		}
 		friSession.close();
 	}
