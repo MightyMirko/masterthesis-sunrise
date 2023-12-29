@@ -27,6 +27,7 @@ import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.motionModel.PTP;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import fastRobot_ROS2_HUMBLE.AngleConverter;
 
@@ -154,16 +155,20 @@ public class FRI extends RoboticsAPIApplication
         //_lbr.move(ptp(Math.toRadians(90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0));
 
 		getLogger().info("Lets Go Position Mode");
-		goGsm();
-        _lbr.move(posHold);
-        
+		boolean repeat = true; 		
+		while (repeat) {
+			
+			goGsm();
+			_lbr.move(posHold);
+		
+		}
         //.addMotionOverlay(jointOverlay));
         //_lbr.getCurrentJointPosition();
         // done
         friSession.close();
     }
 
-    private void goGsm()
+    private boolean goGsm()
     {
        PositionMastering mastering = new PositionMastering(_lbr);
 
@@ -246,6 +251,7 @@ public class FRI extends RoboticsAPIApplication
             getLogger().info("Moving to home position");
             _lbr.move(ptpHome().setJointVelocityRel(joggingVelocity));
         }
+		return true;
     }
 
     private void performMotion(JointPosition position)
