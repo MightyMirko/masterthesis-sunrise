@@ -111,52 +111,10 @@ public class FRI extends RoboticsAPIApplication
     public void run()
     {
 
-			
-		// Lineare Fahrt Senkrecht nach oben um 200 mm 
-		//getLogger().info("Lineare Fahrt Senkrecht nach oben um 200 mm");
-		//TCP.move(linRel(Transformation.ofDeg(0,0,-1*safePos,0,0,0),getApplicationData().getFrame("/A_Lego_Base/E1")).setJointVelocityRel(0.1));
-		//_medflange.setLEDRed(true);
     	double speed_init = 0.7;
 		getLogger().info("Init POS PTP");
 		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(speed_init));
-		virtualGripper.move(ptp(getApplicationData().getFrame("/A_virtualGripHome")));
-
-		
-		// configure and start FRI session
-        //FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
-        //friConfiguration.setSendPeriodMilliSec(5)
-        //friConfiguration.registerIO() TODO
-        
-        
-        //getLogger().info("Creating FRI connection to "  + friConfiguration.getHostName());
-        //getLogger().info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
-        //        + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
-
-       //FRISession friSession = new FRISession(friConfiguration);
-
-       //
-		////PositionControlMode ctrMode = new PositionControlMode();
-		////posHold = new PositionHold(ctrMode, -1, TimeUnit.MINUTES);
-		////jointOverlay = new FRIJointOverlay(friSession, ClientCommandMode.POSITION);
-
-       //// wait until FRI session is ready to switch to command mode
-       //try
-       //{
-       //    friSession.await(10, TimeUnit.SECONDS);
-       //}
-       //catch (final TimeoutException e)
-       //{
-       //    getLogger().error(e.getLocalizedMessage());
-       //    friSession.close();
-       //    return;
-       //}
-        //getLogger().info("FRI connection established.");
-
-        // move to start pose
-		getLogger().info("Init POS PTP");
-
-        //_lbr.move(ptp(Math.toRadians(90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0));
-
+		//virtualGripper.move(ptp(getApplicationData().getFrame("/A_virtualGripHome")));
 		getLogger().info("Lets Go Position Mode");
 		boolean repeat = true; 		
 		while (repeat) {
