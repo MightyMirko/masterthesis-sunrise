@@ -79,7 +79,11 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/KUKAJavaLib/#Bundle-JavaDoc#!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="Library/com.kuka.connectivity.fastRobotInterface.clientSDK_1.15.1.Con1-17-0_2.jar"/>
+	<classpathentry kind="lib" path="Library/com.kuka.connectivity.fastRobotInterface.clientSDK_1.15.1.Con1-17-0_2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/Library/com.kuka.connectivity.fastRobotInterface.clientSDK_1.15.1.Con1-17-0_2-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="Library/protobuf-java-2.5.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
