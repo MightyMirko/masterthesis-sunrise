@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import com.kuka.common.ThreadUtil;
 import com.kuka.connectivity.fastRobotInterface.ClientCommandMode;
 import com.kuka.connectivity.fastRobotInterface.FRIChannelInformation;
+import com.kuka.connectivity.fastRobotInterface.FRIChannelInformation.FRISessionState;
 import com.kuka.connectivity.fastRobotInterface.FRIConfiguration;
 import com.kuka.connectivity.fastRobotInterface.FRIJointOverlay;
 import com.kuka.connectivity.fastRobotInterface.FRISession;
@@ -100,9 +101,9 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
     	friConfiguration.setSendPeriodMilliSec(5);
     	
 		FRISession friSession = new FRISession(friConfiguration);
- logger.info("Creating FRI connection to "  + friConfiguration.getHostName());
- logger.info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
-                 + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
+ //logger.info("Creating FRI connection to "  + friConfiguration.getHostName());
+ //logger.info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
+    //             + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
 
          try{
         	 friSession.await(10, TimeUnit.SECONDS);
@@ -115,11 +116,13 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
              return;
          }
 
-         logger.info("FRI connection established.");	
+         //logger.info("FRI connection established.");	
 	
-         logger.info(friChannelInformation.toString());
+         //logger.info(friChannelInformation.toString());
 		while (tmp){
 			
+			if (friChannelInformation.getFRISessionState() == FRISessionState.IDLE)
+				tmp = false;			
 
 		}
 		friSession.close();
