@@ -93,7 +93,7 @@ public class FRI extends RoboticsAPIApplication
 		getLogger().info("Init POS PTP");
 		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(speed_init));
 		//virtualGripper.move(ptp(getApplicationData().getFrame("/A_virtualGripHome")));
-		getLogger().info("Lets Go Position Mode");
+		getLogger().info("Lets Go Position Referencing Mode");
 		boolean repeat = true; 		
 		while (repeat) {
 			

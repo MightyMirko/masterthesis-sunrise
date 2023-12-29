@@ -68,6 +68,8 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 				// *** change next line to the FRIClient's IP address                 ***
 				// **********************************************************************
 				_clientName = "172.31.0.21";
+				
+		
 
 	}
 
@@ -86,7 +88,7 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
              return;
          }
 		boolean tmp = true;
-
+		friSession.addFRISessionListener(listener);
 		while (tmp){
 			
 			if (friSession.getFRIChannelInformation().getFRISessionState() == FRISessionState.IDLE)
