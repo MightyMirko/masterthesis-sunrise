@@ -32,6 +32,8 @@ import com.kuka.roboticsAPI.motionModel.HandGuidingMotion;
 import com.kuka.roboticsAPI.motionModel.PTP;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
+import com.kuka.task.ITaskLogger;
+
 import fastRobot_ROS2_HUMBLE.AngleConverter;
 import static com.kuka.roboticsAPI.motionModel.HRCMotions.*;
 
@@ -52,6 +54,8 @@ import static com.kuka.roboticsAPI.motionModel.HRCMotions.*;
  */
 public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 	@Inject
+	private ITaskLogger logger;
+	@Inject
     private Controller _lbrController;
     private String _clientName;
 	@Inject
@@ -61,13 +65,13 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
     	@Override
     	public void onFRIConnectionQualityChanged(
     	FRIChannelInformation friChannelInformation){
-    	getLogger().info("QualityChangedEvent - quality:" +
+    		logger.info("QualityChangedEvent - quality:" +
     	friChannelInformation.getQuality()+"\n Jitter info:" + friChannelInformation.getJitter() +"\n Latency info:" + friChannelInformation.getLatency());
     	}
     	@Override
     	public void onFRISessionStateChanged(
     	FRIChannelInformation friChannelInformation){
-    	getLogger().info("SessionStateChangedEvent - session state:" +
+    		logger.info("SessionStateChangedEvent - session state:" +
     	friChannelInformation.getFRISessionState() +"\n Jitter info:" + friChannelInformation.getJitter() +"\n Latency info:" + friChannelInformation.getLatency());
     	}
     	};
@@ -96,8 +100,8 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
     	friConfiguration.setSendPeriodMilliSec(5);
     	
 		FRISession friSession = new FRISession(friConfiguration);
- getLogger().info("Creating FRI connection to "  + friConfiguration.getHostName());
-         getLogger().info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
+ logger.info("Creating FRI connection to "  + friConfiguration.getHostName());
+ logger.info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
                  + " ReceiveMultiplier: " + friConfiguration.getReceiveMultiplier());
 
          try{
@@ -105,15 +109,15 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
          }
          catch (final TimeoutException e)
          {
-             getLogger().error(e.getLocalizedMessage());
+        	 logger.error(e.getLocalizedMessage());
              //friSession.close();
  			tmp = false;
              return;
          }
 
-        getLogger().info("FRI connection established.");	
+         logger.info("FRI connection established.");	
 	
-        getLogger().info(friChannelInformation.toString());
+         logger.info(friChannelInformation.toString());
 		while (tmp){
 			
 
