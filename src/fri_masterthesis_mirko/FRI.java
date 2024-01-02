@@ -96,12 +96,34 @@ public class FRI extends RoboticsAPIApplication
 		getLogger().info("Lets Go Position Referencing Mode");
 		boolean repeat = true; 		
 		while (repeat) {
-			
-			repeat = goGsm();
+			repeat = goTest();
+			//repeat = goGsm();
 			//_lbr.move(posHold);
 		
 		}
 
+    }
+    
+    private boolean goTest()
+    {
+        performMotion(new JointPosition(Math.toRadians(0.0),
+                Math.toRadians(0),
+                Math.toRadians(45),
+                Math.toRadians(0),
+                Math.toRadians(0),
+                Math.toRadians(45),
+                Math.toRadians(0)
+                ));
+        
+        performMotion(new JointPosition(Math.toRadians(0.0),
+                Math.toRadians(0),
+                Math.toRadians(-45),
+                Math.toRadians(0),
+                Math.toRadians(0),
+                Math.toRadians(45),
+                Math.toRadians(0)
+                ));
+        return true;
     }
 
     private boolean goGsm()
