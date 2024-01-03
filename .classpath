@@ -3,6 +3,12 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="examples"/>
+	<classpathentry kind="lib" path="Library/com.kuka.connectivity.fastRobotInterface.clientSDK_1.15.1.Con1-17-0_2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/Library/com.kuka.connectivity.fastRobotInterface.clientSDK_1.15.1.Con1-17-0_2-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Library/protobuf-java-2.5.0.jar"/>
 	<classpathentry kind="lib" path="KUKAJavaLib/javax.inject_1.0.0.v20091030.jar"/>
 	<classpathentry kind="lib" path="KUKAJavaLib/com.kuka.appframework.api_1.1.0.3.jar">
 		<attributes>
@@ -44,7 +50,7 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/KUKAJavaLib/com.kuka.resource.api_1.0.0.5-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5.jar" sourcepath="KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5.jar">
+	<classpathentry kind="lib" path="KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/KUKAJavaLib/com.kuka.roboticsAPI_1.15.2.5-javadoc.jar!/"/>
 		</attributes>
@@ -79,11 +85,5 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/KUKAJavaLib/#Bundle-JavaDoc#!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="Library/com.kuka.connectivity.fastRobotInterface.clientSDK_1.15.1.Con1-17-0_2.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/mwe/Library/com.kuka.connectivity.fastRobotInterface.clientSDK_1.15.1.Con1-17-0_2-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="Library/protobuf-java-2.5.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

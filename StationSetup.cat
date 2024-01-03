@@ -24,7 +24,7 @@
                     <Value>LBR_iiwa_7_R800_1</Value>
                 </Property>
                 <Property displayName="Medien-Flansch" key="MAM" showInEditor="true" showInWizard="true" type="String">
-                    <Value displayName="Medien-Flansch IO elektrisch">MADA=MF&amp;IOConfig=MFIO</Value>
+                    <Value displayName="Medien-Flansch elektrisch">MADA=MF&amp;IOConfig=Default</Value>
                     <PossibleValue displayName="Medien-Flansch">MADA=MF&amp;IOConfig=Default</PossibleValue>
                     <PossibleValue displayName="Medien-Flansch elektrisch">MADA=MF&amp;IOConfig=Default</PossibleValue>
                     <PossibleValue displayName="Medien-Flansch pneumatisch">MADA=MF&amp;IOConfig=Default</PossibleValue>
