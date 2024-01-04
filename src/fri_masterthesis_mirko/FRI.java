@@ -106,21 +106,23 @@ public class FRI extends RoboticsAPIApplication
     
     private boolean goTest()
     {
-        performMotion(new JointPosition(Math.toRadians(0.0),
+        performMotion(new JointPosition(
+                Math.toRadians(0.0),
+                Math.toRadians(-70),
                 Math.toRadians(0),
-                Math.toRadians(45),
                 Math.toRadians(0),
                 Math.toRadians(0),
-                Math.toRadians(45),
+                Math.toRadians(0),
                 Math.toRadians(0)
                 ));
         
-        performMotion(new JointPosition(Math.toRadians(0.0),
+        performMotion(new JointPosition(
+                Math.toRadians(0.0),
+                Math.toRadians(70),
                 Math.toRadians(0),
-                Math.toRadians(-45),
                 Math.toRadians(0),
                 Math.toRadians(0),
-                Math.toRadians(45),
+                Math.toRadians(0),
                 Math.toRadians(0)
                 ));
         return true;
