@@ -99,17 +99,28 @@ public class FRI extends RoboticsAPIApplication
 		boolean referenced = true;
 		boolean repeat = true; 		
 		while (repeat) {
-			//repeat = goTest();
+			repeat = goTest();
 	        // Simulate Single Joint Motion for Joint 3
+            
+	        move6_async(5, -70);
+
 	        simulateSingleJointMotion(2, Math.toRadians(45)); // Joint 3 (0-based index) to target angle 45 degrees
+           move6_async(5, 70);
 
 	        // Simulate Sequential Joint Motion
-	        simulateSequentialJointMotion();
+	        //simulateSequentialJointMotion();
 		    
 			if (!referenced){			
 			    repeat = goGsm();}
 		}
 
+    }
+
+    private void move6_async(int axisNo, double targetAngle) {
+        JointPosition jointPosition = new JointPosition(_lbr.getCurrentJointPosition());
+        jointPosition.set(axisNo, Math.toRadians(targetAngle));
+        PTP motion = new PTP(jointPosition).setJointVelocityRel(joggingVelocity);
+        _lbr.moveAsync(motion);
     }
     
     
@@ -121,7 +132,7 @@ public class FRI extends RoboticsAPIApplication
 
         // Move the specified joint while keeping others stationary
         getLogger().info("Simulating Single Joint Motion - Joint " + (jointIndex + 1) + " to " + Math.toDegrees(targetAngle) + " degrees");
-        _lbr.move(new PTP(getTargetJointPosition(jointIndex, targetAngle)).setJointVelocityRel(0.1));
+        _lbr.move(new PTP(getTargetJointPosition(jointIndex, targetAngle)).setJointVelocityRel(joggingVelocity));
         //getLogger().info("End-Effector Velocity: " + _lbr.getExternalForceTorque());
         // Wait for a moment
         try {
@@ -136,7 +147,7 @@ public class FRI extends RoboticsAPIApplication
         getLogger().info("Simulating Sequential Joint Motion");
         for (int i = 0; i < 7; ++i) {
             double targetAngle = Math.toRadians(30 * (i + 1)); // Incremental target angles
-            _lbr.move(new PTP(getTargetJointPosition(i, targetAngle)).setJointVelocityRel(0.1));
+            _lbr.move(new PTP(getTargetJointPosition(i, targetAngle)).setJointVelocityRel(joggingVelocity));
             //getLogger().info("End-Effector Velocity: " + _lbr.getExternalForceTorque());
 
             // Wait for a moment
