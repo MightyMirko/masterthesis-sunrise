@@ -22,6 +22,7 @@ import com.kuka.roboticsAPI.motionModel.HandGuidingMotion;
 import com.kuka.roboticsAPI.motionModel.PTP;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
+import com.kuka.roboticsAPI.requestModel.GetJointLimitRequest;
 
 import fastRobot_ROS2_HUMBLE.AngleConverter;
 /**
@@ -44,7 +45,7 @@ public class FRI extends RoboticsAPIApplication
     FRIJointOverlay jointOverlay;
 */
     private final static double sideOffset = Math.toRadians(5);       // offset in radians for side motion
-    private double joggingVelocity = 0.45;                            // relative velocity
+    private double joggingVelocity = 0.7;                            // relative velocity
     private final static int axisId[] = {0, 1, 2, 3, 4, 5, 6};        // axes to be referenced
     private final static int GMS_REFERENCING_COMMAND = 2;             // safety command for GMS referencing
     private final static int COMMAND_SUCCESSFUL = 1;
@@ -92,22 +93,76 @@ public class FRI extends RoboticsAPIApplication
     	double speed_init = 0.7;
 		getLogger().info("Init POS PTP");
 		_lbr.move(ptp(INITIAL_POSITION).setJointVelocityRel(speed_init));
+
 		//virtualGripper.move(ptp(getApplicationData().getFrame("/A_virtualGripHome")));
 		getLogger().info("Lets Go Position Referencing Mode");
+		boolean referenced = true;
 		boolean repeat = true; 		
 		while (repeat) {
-			repeat = goTest();
-			//repeat = goGsm();
-			//_lbr.move(posHold);
-		
+			//repeat = goTest();
+	        // Simulate Single Joint Motion for Joint 3
+	        simulateSingleJointMotion(2, Math.toRadians(45)); // Joint 3 (0-based index) to target angle 45 degrees
+
+	        // Simulate Sequential Joint Motion
+	        simulateSequentialJointMotion();
+		    
+			if (!referenced){			
+			    repeat = goGsm();}
 		}
 
     }
     
+    
+    private void simulateSingleJointMotion(int jointIndex, double targetAngle) {
+        if (jointIndex < 0 || jointIndex >= 7) {
+            getLogger().warn("Invalid joint index.");
+            return;
+        }
+
+        // Move the specified joint while keeping others stationary
+        getLogger().info("Simulating Single Joint Motion - Joint " + (jointIndex + 1) + " to " + Math.toDegrees(targetAngle) + " degrees");
+        _lbr.move(new PTP(getTargetJointPosition(jointIndex, targetAngle)).setJointVelocityRel(0.1));
+        //getLogger().info("End-Effector Velocity: " + _lbr.getExternalForceTorque());
+        // Wait for a moment
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            getLogger().error("InterruptedException: " + e.getMessage());
+        }
+    }
+
+    private void simulateSequentialJointMotion() {
+        // Move joints sequentially, one after the other
+        getLogger().info("Simulating Sequential Joint Motion");
+        for (int i = 0; i < 7; ++i) {
+            double targetAngle = Math.toRadians(30 * (i + 1)); // Incremental target angles
+            _lbr.move(new PTP(getTargetJointPosition(i, targetAngle)).setJointVelocityRel(0.1));
+            //getLogger().info("End-Effector Velocity: " + _lbr.getExternalForceTorque());
+
+            // Wait for a moment
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                getLogger().error("InterruptedException: " + e.getMessage());
+            }
+        }
+    }
+
+    private JointPosition getTargetJointPosition(int jointIndex, double targetAngle) {
+        JointPosition jointPosition = new JointPosition(_lbr.getJointCount());
+        jointPosition.set(jointIndex, targetAngle);
+        return jointPosition;
+    }
+    
+    
+    
+    
+    
+    
     private boolean goTest()
     {
         performMotion(new JointPosition(
-                Math.toRadians(0.0),
+                Math.toRadians(90),
                 Math.toRadians(-70),
                 Math.toRadians(0),
                 Math.toRadians(0),
@@ -117,7 +172,7 @@ public class FRI extends RoboticsAPIApplication
                 ));
         
         performMotion(new JointPosition(
-                Math.toRadians(0.0),
+                Math.toRadians(90),
                 Math.toRadians(70),
                 Math.toRadians(0),
                 Math.toRadians(0),
@@ -232,7 +287,7 @@ public class FRI extends RoboticsAPIApplication
         _lbr.move(mainMotion);
 
         // Wait a little to reduce robot vibration after stop.
-        ThreadUtil.milliSleep(2500);
+        ThreadUtil.milliSleep(200);
         
         // Send the command to safety to trigger the measurement
         sendSafetyCommand();
@@ -248,7 +303,7 @@ public class FRI extends RoboticsAPIApplication
         _lbr.move(mainMotion);
 
         // Wait a little to reduce robot vibration after stop
-        ThreadUtil.milliSleep(2500);
+        ThreadUtil.milliSleep(200);
         
         // Send the command to safety to trigger the measurement
         sendSafetyCommand();
