@@ -102,7 +102,7 @@ public class FRI extends RoboticsAPIApplication
 		    
 	        getLogger().info("Moving first joint from -130 to 170 degrees");
 	        _lbr.move(moveFirstJointAsync(-130));
-	        _lbr.move(moveFirstJointAsync(170));
+	        _lbr.move(moveFirstJointAsync(130));
 	        
 	        
 			/*repeat = goTest();
