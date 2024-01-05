@@ -99,7 +99,13 @@ public class FRI extends RoboticsAPIApplication
 		boolean referenced = true;
 		boolean repeat = true; 		
 		while (repeat) {
-			repeat = goTest();
+		    
+	        getLogger().info("Moving first joint from -130 to 170 degrees");
+	        _lbr.move(moveFirstJointAsync(-130));
+	        _lbr.move(moveFirstJointAsync(170));
+	        
+	        
+			/*repeat = goTest();
 	        // Simulate Single Joint Motion for Joint 3
             
 	        _lbr.move(move6_async(5, -70));
@@ -109,11 +115,18 @@ public class FRI extends RoboticsAPIApplication
             simulateSingleJointMotion(6,Math.toRadians(90));
 	        // Simulate Sequential Joint Motion
 	        //simulateSequentialJointMotion();
-		    
+		    */
 			if (!referenced){			
 			    repeat = goGsm();}
 		}
 
+    }
+    
+    private PTP moveFirstJointAsync(double targetAngle) {
+        JointPosition jointPosition = new JointPosition(_lbr.getCurrentJointPosition());
+        jointPosition.set(0, Math.toRadians(targetAngle));
+        PTP motion = new PTP(jointPosition).setJointVelocityRel(joggingVelocity);
+        return motion;
     }
 
     private PTP move6_async(int axisNo, double targetAngle) {
