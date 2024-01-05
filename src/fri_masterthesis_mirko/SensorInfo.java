@@ -36,12 +36,14 @@ import com.kuka.task.ITaskLogger;
 public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 	@Inject
 	private ITaskLogger logger;
-	@Inject
+    @Inject
     private Controller _lbrController;
+	
     private String _clientName;
 	@Inject
 	private LBR _lbr;
 	FRIChannelInformation friChannelInformation;
+	
     IFRISessionListener listener = new IFRISessionListener(){
     	@Override
     	public void onFRIConnectionQualityChanged(
@@ -64,12 +66,10 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 				CycleBehavior.BestEffort);
 
 				_lbrController = (Controller) getContext().getControllers().toArray()[0];
-				// **********************************************************************
-				// *** change next line to the FRIClient's IP address                 ***
-				// **********************************************************************
+// **********************************************************************
+// *** change next line to the FRIClient's IP address (ROS2 Node, PC, Pi, Windows)***
+// **********************************************************************
 				_clientName = "172.31.0.21";
-				
-		
 
 	}
 
@@ -91,6 +91,7 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
          }
 		boolean tmp = true;
 		friSession.addFRISessionListener(listener);
+		
 		while (tmp){
 			
 			if (friSession.getFRIChannelInformation().getFRISessionState() == FRISessionState.IDLE)
