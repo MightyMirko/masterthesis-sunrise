@@ -102,11 +102,11 @@ public class FRI extends RoboticsAPIApplication
 			repeat = goTest();
 	        // Simulate Single Joint Motion for Joint 3
             
-	        move6_async(5, -70);
+	        _lbr.move(move6_async(5, -70));
 
 	        simulateSingleJointMotion(2, Math.toRadians(45)); // Joint 3 (0-based index) to target angle 45 degrees
-           move6_async(5, 70);
-
+           _lbr.move(move6_async(5, 70));
+           simulateSingleJointMotion(6,Math.toRadians(90));
 	        // Simulate Sequential Joint Motion
 	        //simulateSequentialJointMotion();
 		    
@@ -116,12 +116,12 @@ public class FRI extends RoboticsAPIApplication
 
     }
 
-    private void move6_async(int axisNo, double targetAngle) {
+    private PTP move6_async(int axisNo, double targetAngle) {
         JointPosition jointPosition = new JointPosition(_lbr.getCurrentJointPosition());
         jointPosition.set(axisNo, Math.toRadians(targetAngle));
         PTP motion = new PTP(jointPosition).setJointVelocityRel(joggingVelocity);
-        _lbr.moveAsync(motion);
-    }
+        return motion;
+        }
     
     
     private void simulateSingleJointMotion(int jointIndex, double targetAngle) {
@@ -179,13 +179,13 @@ public class FRI extends RoboticsAPIApplication
                 Math.toRadians(0),
                 Math.toRadians(0),
                 Math.toRadians(0),
-                Math.toRadians(0)
+                Math.toRadians(40)
                 ));
         
         performMotion(new JointPosition(
                 Math.toRadians(90),
                 Math.toRadians(70),
-                Math.toRadians(0),
+                Math.toRadians(30),
                 Math.toRadians(0),
                 Math.toRadians(0),
                 Math.toRadians(0),
