@@ -106,7 +106,7 @@ public class FRI extends RoboticsAPIApplication
 
 	        simulateSingleJointMotion(2, Math.toRadians(45)); // Joint 3 (0-based index) to target angle 45 degrees
            _lbr.move(move6_async(5, 70));
-           simulateSingleJointMotion(6,Math.toRadians(90));
+            simulateSingleJointMotion(6,Math.toRadians(90));
 	        // Simulate Sequential Joint Motion
 	        //simulateSequentialJointMotion();
 		    
