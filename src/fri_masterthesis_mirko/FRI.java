@@ -104,13 +104,13 @@ public class FRI extends RoboticsAPIApplication
 	        _lbr.move(moveFirstJointAsync(-130));
 	        _lbr.move(moveFirstJointAsync(130));
 	        
+	        simulateSingleJointMotion(2, Math.toRadians(45)); // Joint 3 (0-based index) to target angle 45 degrees
 	        
 			/*repeat = goTest();
 	        // Simulate Single Joint Motion for Joint 3
             
 	        _lbr.move(move6_async(5, -70));
 
-	        simulateSingleJointMotion(2, Math.toRadians(45)); // Joint 3 (0-based index) to target angle 45 degrees
            _lbr.move(move6_async(5, 70));
             simulateSingleJointMotion(6,Math.toRadians(90));
 	        // Simulate Sequential Joint Motion
@@ -145,7 +145,7 @@ public class FRI extends RoboticsAPIApplication
 
         // Move the specified joint while keeping others stationary
         getLogger().info("Simulating Single Joint Motion - Joint " + (jointIndex + 1) + " to " + Math.toDegrees(targetAngle) + " degrees");
-        _lbr.move(new PTP(getTargetJointPosition(jointIndex, targetAngle)).setJointVelocityRel(joggingVelocity));
+        _lbr.moveAsync(new PTP(getTargetJointPosition(jointIndex, targetAngle)).setJointVelocityRel(joggingVelocity));
         //getLogger().info("End-Effector Velocity: " + _lbr.getExternalForceTorque());
         // Wait for a moment
         try {

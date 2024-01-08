@@ -78,7 +78,7 @@ public class SensorInfo extends RoboticsAPICyclicBackgroundTask {
 	    FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(_lbr, _clientName);
     	friConfiguration.setPortOnController(-1);
     	friConfiguration.setPortOnRemote(30201);
-    	friConfiguration.setSendPeriodMilliSec(5);    	
+    	friConfiguration.setSendPeriodMilliSec(2);    	
 		FRISession friSession = new FRISession(friConfiguration);
         try{
         	 friSession.await(10, TimeUnit.SECONDS);
