@@ -100,12 +100,16 @@ public class FRI extends RoboticsAPIApplication
 		boolean repeat = true; 		
 		while (repeat) {
 		    
+            simulateSingleJointMotion(1, Math.toRadians(-30)); // Joint 3 (0-based index) to target angle 45 degrees
+            simulateSingleJointMotion(2, Math.toRadians(-45)); // Joint 3 (0-based index) to target angle 45 degrees
+            
 	        getLogger().info("Moving first joint from -130 to 170 degrees");
 	        _lbr.move(moveFirstJointAsync(-130));
 	        _lbr.move(moveFirstJointAsync(130));
 	        
 	        simulateSingleJointMotion(2, Math.toRadians(45)); // Joint 3 (0-based index) to target angle 45 degrees
-	        
+	        simulateSingleJointMotion(1, Math.toRadians(30)); // Joint 3 (0-based index) to target angle 45 degrees
+            
 			/*repeat = goTest();
 	        // Simulate Single Joint Motion for Joint 3
             
