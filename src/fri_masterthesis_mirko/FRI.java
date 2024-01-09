@@ -3,6 +3,8 @@ package fri_masterthesis_mirko;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.ptp;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.ptpHome;
 
+import iCube_ros2_humble.AngleConverter;
+
 import java.util.concurrent.TimeUnit;
 
 import com.kuka.common.ThreadUtil;
@@ -24,7 +26,6 @@ import com.kuka.roboticsAPI.motionModel.PositionHold;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
 import com.kuka.roboticsAPI.requestModel.GetJointLimitRequest;
 
-import fastRobot_ROS2_HUMBLE.AngleConverter;
 /**
  * C:reates a FRI Sesaeeesion.
  */ 

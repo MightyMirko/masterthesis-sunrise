@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package fastRobot_ROS2_HUMBLE;
+package iCube_ros2_humble;
+import iCube_ros2_humble.AngleConverter;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -38,7 +40,6 @@ import com.kuka.connectivity.fastRobotInterface.FRIJointOverlay;
 import com.kuka.connectivity.fastRobotInterface.FRISession;
 import com.kuka.connectivity.fastRobotInterface.IFRISessionListener;
 
-import fastRobot_ROS2_HUMBLE.AngleConverter;
 
 
 

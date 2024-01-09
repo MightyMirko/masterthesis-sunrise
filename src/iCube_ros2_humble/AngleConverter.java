@@ -1,4 +1,4 @@
-package fastRobot_ROS2_HUMBLE;
+package iCube_ros2_humble;
 
 public class AngleConverter {
 
